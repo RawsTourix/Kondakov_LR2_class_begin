@@ -45,8 +45,8 @@ bool InputControl::is_input_empty(const string& input) {
 bool InputControl::is_int(const string& input, int min, int max) {
 	try {
 		int number = stoi(input);
-		if (number < min) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть больше \"" << min << "\"" << endl << endl; return false; }
-		if (number > max) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть меньше \"" << max << "\"" << endl << endl; return false; }
+		if (number < min) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть не меньше \"" << min << "\"" << endl << endl; return false; }
+		if (number > max) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть не больше \"" << max << "\"" << endl << endl; return false; }
 	}
 	catch (const invalid_argument&) {
 		cerr << endl << "Введённое значение \"" << input << "\" не является числом!" << endl << endl;
