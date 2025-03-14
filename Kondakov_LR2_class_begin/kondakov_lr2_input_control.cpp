@@ -48,7 +48,14 @@ bool InputControl::is_int(const string& input, int min, int max) {
 		if (number < min) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть больше \"" << min << "\"" << endl << endl; return false; }
 		if (number > max) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть меньше \"" << max << "\"" << endl << endl; return false; }
 	}
-	catch (...) { cerr << endl << "Введённое вами значение \"" << input << "\" не является числом!" << endl << endl; return false; }
+	catch (const invalid_argument&) {
+		cerr << endl << "Введённое значение \"" << input << "\" не является числом!" << endl << endl;
+		return false;
+	}
+	catch (const out_of_range&) {
+		cerr << endl << "Число \"" << input << "\" выходит за допустимый диапазон!" << endl << endl;
+		return false;
+	}
 	return true;
 }
 
