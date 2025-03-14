@@ -33,7 +33,7 @@ string InputControl::get_find_ending(size_t n) {
 }
 
 // Проверка на пустой ввод для отмены операции
-bool InputControl::is_input_empty(string input) {
+bool InputControl::is_input_empty(const string& input) {
 	if (input.empty()) {
 		cout << endl << "[Отмена операции]";
 		return true;
@@ -42,7 +42,7 @@ bool InputControl::is_input_empty(string input) {
 }
 
 // Проверка конвертации в целое число
-bool InputControl::is_int(string input, int min, int max) {
+bool InputControl::is_int(const string& input, int min, int max) {
 	try {
 		int number = stoi(input);
 		if (number < min) { cout << endl << "Вы ввели \"" << number << "\" — значение должно быть больше \"" << min << "\"" << endl << endl; return false; }
@@ -53,7 +53,7 @@ bool InputControl::is_int(string input, int min, int max) {
 }
 
 // Вспомогательная функция для ввода целых чисел
-void InputControl::enter_number(int& varLink, bool& escapeLink, string label, int min, int max) {
+void InputControl::enter_number(int& varLink, bool& escapeLink, const string& label, int min, int max) {
 	string raw_input;
 
 	do {
@@ -68,7 +68,7 @@ void InputControl::enter_number(int& varLink, bool& escapeLink, string label, in
 }
 
 // Вспомогательная функция для ввода строк
-void InputControl::enter_string(string& varLink, bool& escapeLink, string label) {
+void InputControl::enter_string(string& varLink, bool& escapeLink, const string& label) {
 	string raw_input;
 
 	cout << label << SEP;

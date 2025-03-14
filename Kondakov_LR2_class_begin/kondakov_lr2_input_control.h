@@ -15,16 +15,16 @@ public:
 	static string get_find_ending(size_t n);
 
 	// Проверка на пустой ввод для отмены операции
-	static bool is_input_empty(string input);
+	static bool is_input_empty(const string& input);
 
 	// Проверка конвертации в целое число
-	static bool is_int(string input, int min, int max);
+	static bool is_int(const string& input, int min, int max);
 
 	// Вспомогательная функция для ввода целых чисел
-	static void enter_number(int& varLink, bool& escapeLink, string label = "", int min = 0, int max = 2147483647);
+	static void enter_number(int& varLink, bool& escapeLink, const string& label = "", int min = 0, int max = 2147483647);
 
 	// Вспомогательная функция для ввода строк
-	static void enter_string(string& varLink, bool& escapeLink, string label = "");
+	static void enter_string(string& varLink, bool& escapeLink, const string& label = "");
 
 	// Функция для вывода меню
 	static void show_menu(const map<int, MenuItem>& menu);
